@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -24,7 +25,7 @@ public class Assignment8 {
     @Test
     public void getData(){
 
-        Assignment8 assignment8 = new Assignment8();
+       // Assignment8 assignment8 = new Assignment8();
 
         List<CompletableFuture<Void>> taskList = new ArrayList<>();
 
@@ -76,6 +77,20 @@ public class Assignment8 {
                     .stream()
                     .map(n -> Integer.parseInt(n))
                     .collect(Collectors.toList());
+
+
+            Map<Integer,Long> newMap  = Files.readAllLines(Paths.get("output.txt"))
+                 .stream()
+                 .map(n -> Integer.parseInt(n))
+                 .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+
+
+            for(Map.Entry<Integer,Long> newEntry : newMap.entrySet()){
+                System.out.println("Process Count "+newEntry.getKey() +" : "+ newEntry.getValue());
+            }
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
