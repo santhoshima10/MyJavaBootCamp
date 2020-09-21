@@ -78,8 +78,9 @@ public class Assignment8 {
                     .map(n -> Integer.parseInt(n))
                     .collect(Collectors.toList());
 
+            //To verify the output.
 
-            Map<Integer,Long> newMap  = Files.readAllLines(Paths.get("output.txt"))
+        /*    Map<Integer,Long> newMap  = Files.readAllLines(Paths.get("output.txt"))
                  .stream()
                  .map(n -> Integer.parseInt(n))
                  .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
@@ -88,6 +89,7 @@ public class Assignment8 {
             for(Map.Entry<Integer,Long> newEntry : newMap.entrySet()){
                 System.out.println("Process Count "+newEntry.getKey() +" : "+ newEntry.getValue());
             }
+            */
 
 
 
